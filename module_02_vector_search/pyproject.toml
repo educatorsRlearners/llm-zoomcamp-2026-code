@@ -6,5 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "dotenv>=0.9.9",
+    "minsearch>=0.1.1",
+    "requests>=2.34.2",
     "sentence-transformers>=5.6.0",
 ]
