@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "dotenv>=0.9.9",
     "minsearch>=0.1.1",
+    "openai>=2.43.0",
     "requests>=2.34.2",
     "sentence-transformers>=5.6.0",
 ]
