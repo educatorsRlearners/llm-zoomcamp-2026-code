@@ -66,4 +66,4 @@ class RAGWithMetrics(RAGBase):
 
         print(call_record)
 
-        self.last_call
+        self.last_call = call_record
