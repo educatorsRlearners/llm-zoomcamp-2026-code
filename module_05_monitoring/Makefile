@@ -16,6 +16,6 @@ postgres: network
 		-e POSTGRES_USER=user \
 		-e POSTGRES_PASSWORD=password \
 		-e POSTGRES_DB=course_assistant \
-		-p 5432:5432 \
-		-v pgdata:/var/lib/postgresql/data \
+		-p 5433:5432 \
+		-v pgdata_v2:/var/lib/postgresql/data \
 		postgres:17

@@ -10,6 +10,7 @@ def get_db_connection():
 
     connection = psycopg.connect(
         host=os.getenv("POSTGRES_HOST", "localhost"),
+        port=os.getenv("POSTGRES_PORT", "5433"),
         dbname=os.getenv("POSTGRES_DB", "course_assistant"),
         user=os.getenv("POSTGRES_USER", "user"),
         password=os.getenv("POSTGRES_PASSWORD", "password"),
