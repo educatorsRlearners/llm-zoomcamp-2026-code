@@ -1,5 +1,5 @@
 import sys
-
+from db_save import save_conversation
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -28,3 +28,5 @@ if __name__ == "__main__":
 
     answer = assistant.rag(query=query)
     print(answer)
+
+    save_conversation(record=assistant.last_call, question=query, course="llm-zoomcamp")
