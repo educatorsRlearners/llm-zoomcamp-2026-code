@@ -1,5 +1,6 @@
 import streamlit as st
 from assistant import create_assistant
+from db_feedback import save_feedback
 from db_save import save_conversation
 
 assistant = create_assistant()
@@ -20,4 +21,17 @@ if st.button("Ask"):
         st.write(f"Completion tokens: {record.completion_tokens}")
         st.write(f"Cost: ${record.cost:.4f}")
 
-        save_conversation(record=record, question=user_input, course="llm-zoomcamp")
+        conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
+        st.session_state.conversation_id = conversation_id
+
+col1, col2 = st.columns(2)
+with col1:
+    if st.button("+1"):
+        cid = st.session_state.conversation_id
+        save_feedback(cid, "user", score=1)
+        st.write("Thanks!")
+with col2:
+    if st.button("-1"):
+        cid = st.session_state.conversation_id
+        save_feedback(cid, "user", score=-1)
+        st.write("Thanks for the feedback!")
